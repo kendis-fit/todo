@@ -9,7 +9,7 @@ const TodoBox = styled(Grid)({
     flexDirection: "row",
     alignItems: "center",
     height: "50px",
-    width: "400px",
+    width: "100%",
     overflowX: "auto",
     justifyContent: "space-between"
 });
