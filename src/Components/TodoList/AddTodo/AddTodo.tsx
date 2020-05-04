@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Add } from "@material-ui/icons";
-import { TextField, IconButton } from "@material-ui/core";
+import { TextField, IconButton, Grid, InputAdornment } from "@material-ui/core";
 
 import IAddTodo from "./Interfaces/IAddTodo";
 
@@ -14,16 +14,21 @@ const AddTodo = (props: IAddTodo) => {
     }
 
     return(
-        <div>
-            <TextField
-                label="Todo"
-                value={todo}
-                onChange={e => setTodo(e.currentTarget.value)}
-                />
-            <IconButton onClick={addTodo}>
-                <Add />
-            </IconButton>
-        </div>
+        <TextField
+            label="Todo"
+            value={todo}
+            fullWidth
+            onChange={e => setTodo(e.currentTarget.value)}
+            InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                        <IconButton onClick={addTodo}>
+                            <Add />
+                        </IconButton>
+                    </InputAdornment>
+                )
+            }}
+            />
     );
 }
 

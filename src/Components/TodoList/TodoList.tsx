@@ -42,7 +42,7 @@ const TodoList = () => {
 
     return(
         <div>
-            <FormControlLabel label="Show archive" control={<Checkbox checked={showAll} onChange={() => setShowAll(!showAll)} />} />
+            <FormControlLabel label="Show archive" control={<Checkbox color="primary" checked={showAll} onChange={() => setShowAll(!showAll)} />} />
             <AddTodo onAdd={name => dispatch({ type: ADD_TODO, value: name })} />
             <List>
                 {
