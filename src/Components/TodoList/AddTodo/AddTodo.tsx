@@ -16,7 +16,6 @@ const AddTodo = (props: IAddTodo) => {
     return(
         <div>
             <TextField
-                variant="filled"
                 label="Todo"
                 value={todo}
                 onChange={e => setTodo(e.currentTarget.value)}
