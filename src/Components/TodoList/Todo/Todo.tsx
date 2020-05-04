@@ -8,7 +8,7 @@ const TodoBox = styled(Grid)({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    height: "50px",
+    height: "80px",
     width: "100%",
     overflowX: "auto",
     justifyContent: "space-between"
@@ -25,8 +25,10 @@ const Todo = (props: ITodo) => {
     }
 
     const finishUpdate = () => {
-        props.onUpdate(name);
-        setUpdated(false);
+        if (name) {
+            props.onUpdate(name);
+            setUpdated(false);
+        }
     }
 
     return(
@@ -36,12 +38,16 @@ const Todo = (props: ITodo) => {
                     <TextField 
                         label="New name"
                         value={name}
+                        error={!name}
+                        helperText={name ? " " : "Name must be filled"}
                         fullWidth
                         onChange={e => setName(e.currentTarget.value)}
                         />
-                    <IconButton onClick={() => finishUpdate()}>
-                        <Done />
-                    </IconButton>
+                    {
+                        name && <IconButton onClick={() => finishUpdate()}>
+                            <Done />
+                        </IconButton>
+                    }
                 </TodoBox>
                 : 
                 <TodoBox>
