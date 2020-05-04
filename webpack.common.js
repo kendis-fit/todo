@@ -6,9 +6,7 @@ module.exports = {
   entry: path.join(__dirname, "src", "index"),
   output: {
     path: path.join(__dirname, "dist"),
-    publicPath: "./",
-    filename: "bundle.[chunkhash].js",
-    chunkFilename: "[name].js"
+    filename: "bundle.[chunkhash].js"
   },
   module: {
     rules: [
