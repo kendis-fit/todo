@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Edit, Done, DeleteForever } from "@material-ui/icons";
-import { ListItem, IconButton, TextField, Typography, styled, Grid } from "@material-ui/core";
+import { ListItem, IconButton, TextField, Typography, styled, Grid, InputAdornment } from "@material-ui/core";
 
 import ITodo from "./Interfaces/ITodo";
 
@@ -42,12 +42,16 @@ const Todo = (props: ITodo) => {
                         helperText={name ? " " : "Name must be filled"}
                         fullWidth
                         onChange={e => setName(e.currentTarget.value)}
+                        InputProps={{
+                            endAdornment: (
+                                name && <InputAdornment position="end">
+                                    <IconButton onClick={() => finishUpdate()}>
+                                        <Done />
+                                    </IconButton>
+                                </InputAdornment>
+                            )
+                        }}
                         />
-                    {
-                        name && <IconButton onClick={() => finishUpdate()}>
-                            <Done />
-                        </IconButton>
-                    }
                 </TodoBox>
                 : 
                 <TodoBox>
