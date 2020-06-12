@@ -1,9 +1,12 @@
 {
+  "homepage": "http://kendis-fit.github.io/todo",
   "name": "todo",
   "scripts": {
     "dev": "webpack --config webpack.dev.js",
     "start": "yarn dev & serve ./dist",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d ./build"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
@@ -18,6 +21,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
     "serve": "^11.3.0",
     "style-loader": "^1.2.1",
